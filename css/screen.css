@@ -1,0 +1,1011 @@
+
+  /*------------------------------------*\
+  #FONTS
+\*------------------------------------*/
+@font-face
+{
+    font-family: "Noto Serif";
+    font-weight: 200;
+    src: url('../fonts/NotoSerif-Regular.ttf')
+}
+
+@font-face
+{
+    font-family: "Noto Serif";
+    font-weight: 600;
+    src: url('../fonts/NotoSerif-Bold.ttf')
+}
+
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+
+:root {
+    /* background colors */
+    --background-color-light: #329ce7;
+    --background-color-dark: #284B63;
+    --text-color-light:#ffffff;
+}
+
+
+/*------------------------------------*\
+  #GENERIC
+\*------------------------------------*/
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+html {
+    font-family: "Noto Serif", Helvetica, arial, sans-serif;
+    font-size: 18px;
+    line-height: 32px;
+    font-weight: 200;
+    color: black;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: white ; /*voor browsers die gradients niet ondersteunen */
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+/* geselecteerde tekst een kleur geven */
+::-moz-selection {
+    background: #0053FB;
+    color: white;
+    text-shadow: none;
+}
+::selection {
+    background: #0053FB;
+    color: white;
+    text-shadow: none;
+}
+
+/* placeholders wit maken ipv grijs */
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: white;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: white;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: white;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: white;
+  }
+
+
+
+
+/*------------------------------------*\
+  #Elements
+\*------------------------------------*/
+/*
+    Elements: Images
+    ---
+    dit toevoegen aan alle images om ze responsive te maken
+*/
+img {
+    max-width: 100%;
+    vertical-align: top;
+}
+
+
+
+/*
+    Elements: typography
+    ---
+    Defaults instellen voor tekst
+*/
+h1,
+h2,
+h3 {
+    font-weight: 400;
+}
+h1 {
+    font-size: 36px;
+    line-height: 48px;
+    margin: 0 0 24px;
+}
+h2 {
+    font-size: 32px;
+    line-height: 40px;
+    margin: 0 0 24px;
+}
+h3 {
+    font-size: 26px;
+    line-height: 32px;
+    margin: 0 0 24px;
+}
+h4,
+h5,
+h6 {
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0 0 24px;
+}
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+    margin: 0 0 24px;
+}
+ul,
+ol {
+    padding-left: 24px;
+}
+li ul,
+li ol {
+    margin-bottom: 0;
+}
+blockquote {
+    font-style: normal;
+    font-size: 23px;
+    line-height: 32px;
+    margin: 0 0 24px;
+}
+blockquote * {
+    font-size: inherit;
+    line-height: inherit;
+}
+figcaption {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 8px;
+}
+hr {
+    border: 0;
+    height: 1px;
+    background: LightGrey;
+    margin: 0 0 24px;
+}
+a {
+    color: #1195F7;
+    transition: all .1s ease-in-out;
+}
+/* kleuren instellen van links die bezocht, actief, over gegeaan word, ... */
+a:visited,
+a:active,
+a:hover,
+a:focus {
+    color: #8EC7FF;
+}
+/* font smotthing toepassen (tekst beter eruit laten zien) */
+body {
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+
+
+/*------------------------------------*\
+  #OBJECTS
+\*------------------------------------*/
+/*
+    Objects: Row
+    ---
+    rijen creeren en padding toevoegen(o-row--lg gebruiken voor bredere marges)
+    --> soort van blogpost creeren
+    --> zorgd er voor dat de tekst niet meer tegen de rand hangt
+*/ 
+.o-row {
+    position: relative;
+    padding: 24px 24px 0;
+    display: flow-root;
+}
+/* size modifiers */
+.o-row--lg {
+    padding: 48px 24px 24px;
+}
+@media (min-width: 768px) {
+    .o-row {
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+    .o-row--md {
+        padding-top: 48px;
+        padding-bottom: 24px;
+    }
+    .o-row--lg {
+        padding-top: 72px;
+        padding-bottom: 48px;
+    }
+    /* navigatie maken, toevoegen aan de ul of ol */
+    .c-nav__list{
+        display: flex;
+    }
+    /* toevoegen aan de elementen van de navigatie */
+    .c-nav__link{
+        padding: 8px 16px;
+    }
+}
+
+
+
+
+
+
+/*
+    Objects: Container
+    ---
+    container creeren die in het midden zal staan met een max width
+*/
+.o-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 56.4em; /* 56.4 * 20px = 1128px */
+}
+
+
+
+
+
+
+
+/*
+    Objects: section
+    ---
+    maken dat er plaats komt tussen verschillende sections
+*/
+.o-section {
+    display: flow-root; /* New solution! Fixes margin collapsing */
+}
+.o-section + .o-section {
+    margin-top: 24px;
+}
+@media (min-width: 768px) {
+    .o-section--lg + .o-section--lg,
+    .o-section--xl + .o-section--xl {
+        margin-top: 48px;
+    }
+}
+@media (min-width: 1200px) {
+    .o-section--xl + .o-section--xl {
+        margin-top: 72px;
+    }
+}
+
+
+
+
+
+
+
+
+/*
+    Objects: Layout
+    ---
+    The layout object provides us with a column-style layout system. This object
+    contains the basic structural elements, but classes should be complemented
+    with width utilities
+*/
+.o-layout {
+    display: flex;
+    flex-wrap: wrap;
+}
+    .o-layout__item {
+        flex-basis: 100%;
+    }
+
+
+
+
+
+
+/*
+    gutter modifiers, these affect o-layout__item too
+    marges toevoegen aan de layout items 
+    (toevoegen aan de o-layout, niet aan de items)
+*/
+.o-layout--gutter {
+    margin: 0 -12px;
+}
+.o-layout--gutter > .o-layout__item {
+    padding: 0 12px;
+}
+.o-layout--gutter-sm {
+    margin: 0 -6px;
+}
+.o-layout--gutter-sm > .o-layout__item {
+    padding: 0 6px;
+}
+.o-layout--gutter-lg {
+    margin: 0 -24px;
+}
+.o-layout--gutter-lg > .o-layout__item {
+    padding: 0 24px;
+}
+
+
+
+
+
+
+
+/*
+    reverse horizontal row modifier
+    (toevoegen aan o-layout)
+ */
+.o-layout--row-reverse {
+    /* elementen in omgekeerde volgorde weergeven (elementen switchen) >*/
+    flex-direction: row-reverse;
+}
+
+
+
+
+
+
+
+/*
+    horizontaal elementen aligneren naar wat je wil
+    (toevoegen aan o-layout)
+ */
+.o-layout--justify-start {
+    /* naar rechts centreren */
+    justify-content: flex-start;
+}
+.o-layout--justify-end {
+    /* naar links centreren */
+    justify-content: flex-end;
+}
+.o-layout--justify-center {
+    /* midden centreren */
+    justify-content: center;
+}
+.o-layout--justify-space-around {
+    justify-content: space-around;
+}
+.o-layout--justify-space-evenly {
+    /* evenveel plaats tussen elk element */
+    justify-content: space-evenly;
+}
+.o-layout--justify-space-between {
+    /* plaats tussen laten, midden en eind tegen de rand */
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+/* 
+    vertical alignement 
+    toevoegen aan o-layout) 
+*/
+.o-layout--align-start {
+    /* aligneren in het begin */
+    align-items: flex-start;
+}
+.o-layout--align-end {
+    /* aligneren op het einde */
+    align-items: flex-end;
+}
+.o-layout--align-center {
+    /* aligneren in het midden */
+    align-items: center;
+}
+.o-layout--align-baseline {
+    align-items: baseline;
+}
+
+
+
+
+
+/* 
+    Vertical alignment modifiers that only work if there is more than one flex item
+    (toevoegen aan o-layout)
+ */
+.o-layout--align-content-start {
+    align-content: start;
+}
+.o-layout--align-content-end {
+    align-content: end;
+}
+.o-layout--align-content-center {
+    align-content: center;
+}
+.o-layout--align-content-space-around {
+    align-content: space-around;
+}
+.o-layout--align-content-space-between {
+    align-content: space-between;
+}
+
+
+
+
+
+
+
+/*
+    Objects: List
+    ---
+    Small reusable object to remove default list styling from lists
+    gezoon items onder elkaar zetten zonder style
+*/
+.o-list {
+    list-style: none;
+    padding: 0;
+}
+
+
+
+
+
+
+/*------------------------------------*\
+  #COMPONENTS LANDINGSPAGE
+\*------------------------------------*/
+.grid-container-landingspage{
+    min-height: 100vh;
+}
+
+.grid-item-mockup{
+  max-width: 80em;
+}
+
+.grid-item-text{
+    max-width: 20em;
+    margin: auto;
+}
+
+.grid-item-footer{
+    text-align: center;
+    line-height: 0;
+    margin-top: 5em;
+    margin-left: auto;
+    padding-bottom: 2rem;
+}
+
+@media (min-width:992px) {
+    .grid-container-landingspage{
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    .grid-item-text{
+        max-width: 20em;
+        margin-top: 20%;
+        margin-right: 10em;
+    }
+}
+
+.c-body{
+    color: var(--text-color-light);
+    background: rgb(40,75,99);
+    background: linear-gradient(0deg, rgba(40,75,99,1) 0%, rgba(74,155,211,1) 95%);
+}
+
+a.c-button{
+    display: inline-block;
+    padding: 0.3rem 1.2rem;
+    margin:0 0.3rem 0.3rem 0;
+    border-radius:2rem;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:300;
+    color:#FFFFFF;
+    background-color:#3cb6fd;
+    text-align:center;
+    transition: all 0.2s;
+    width: 20rem;
+}
+
+.c-input{
+    color: white;
+    text-align: center;
+    border-radius: 2em;
+    float: left;
+    margin-top: 1rem;
+    background: transparent;
+    border: 2px solid white;
+    height: 2rem;
+    margin-bottom: 1rem;
+    width: 20rem;
+}
+
+.c-input:focus{
+    outline: none;
+}
+
+.c-input-btn{
+    display: grid;
+    margin-bottom: 2rem;
+}
+
+
+a.c-button:hover{
+    background-color:#4095c6;
+}
+
+@media all and (max-width:30em){
+     a.c-button{
+        display:block;
+        margin:0.2em auto;
+    }
+}
+
+
+
+/*------------------------------------*\
+  #COMPONENTS MAIN PAGE
+\*------------------------------------*/
+
+/* css grid */
+html, body, .viewport {
+    width: 100%;
+    height: 100%;   
+    
+}
+
+.grid-container > div {
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    color: var(--background-color-dark);
+}
+
+@media (min-width: 768px) {
+    .grid-container {
+        display: grid;
+        grid-row-gap: 2px;
+        grid-column-gap: 2px;
+        grid-template-columns: 1fr 1fr;
+        background-color: #ffffff;
+        height: 100%;
+        width: 100%;
+    } 
+    .background-light
+    {
+        background-size: 90%;
+    }
+    .background-dark
+    {
+        background-size: 90%;
+    }
+}
+
+.grid-item-header{
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--background-color-light);
+    background: linear-gradient(180deg, rgba(40,75,99,1) 0%, rgba(74,155,211,1) 95%);
+}
+.grid-item-local{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.grid-item-chosen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.c-dropdown{
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--background-color-dark);
+    line-height: 1.3;
+    width: 10em;
+	padding: .6em 1.4em .5em .8em;
+	box-sizing: border-box;
+    margin: 0;
+    margin-left: 1em;
+	border: 1px solid var(--text-color-light);
+	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+	border-radius: .5em;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+    background-color: #fff;
+    /* custom pijltje toevoegen */
+	background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+	  linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+	background-repeat: no-repeat, repeat;
+	background-position: right .7em top 50%, 0 0;
+	background-size: .65em auto, 100%;
+}
+
+/* border wanneer je erover hoverd */
+.c-dropdown:hover {
+	border-color: #888;
+}
+
+/* border wanneer je er op geklikt hebt */
+.c-dropdown:focus {
+	border-color: #aaa;
+	box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+	box-shadow: 0 0 0 3px -moz-mac-focusring;
+	color: #222;
+	outline: none;
+}
+
+/*------------------------------------*\
+  #UTILITIES
+\*------------------------------------*/
+/*
+    Utilities: color
+    ---
+    Utility classes to put specific colors onto elements
+*/
+
+/*
+    Utilities: spacing
+    ---
+    Utility classes om marges en padding toe te voegen
+*/
+/* padding top clear */
+.u-pt-clear {
+    padding-top: 0 !important;
+}
+/* margin bottom clear */
+.u-mb-clear {
+    margin-bottom: 0 !important;
+}
+.u-mb-xs {
+    margin-bottom: 4px !important;
+}
+.u-mb-sm {
+    margin-bottom: 8px !important;
+}
+.u-mb-md {
+    margin-bottom: 16px !important;
+}
+.u-mb-lg {
+    margin-bottom: 32px !important;
+}
+.u-mb-xl {
+    margin-bottom: 48px !important;
+}
+
+
+
+
+
+
+
+/*
+    Utilities: max-width
+    ---
+    Utility classes to put specific max widths onto elements
+    maximum breedtes instellen 
+*/
+.u-max-width-xs {
+    max-width: 18em !important;
+}
+.u-max-width-sm {
+    max-width: 32em !important;
+}
+.u-max-width-md {
+    max-width: 42em !important;
+}
+.u-max-width-lg {
+    max-width: 60em !important;
+}
+.u-max-width-xl {
+    max-width: 70em !important;
+}
+.u-max-width-none {
+    max-width: none !important;
+}
+
+
+
+
+
+
+
+
+/*
+    Utility: Flex
+    ---
+    Utility classes to put specific flex properties onto elements
+    Will be mostly used on o-layout__item
+*/
+.u-flex-basis-auto {
+    flex-basis: auto !important;
+}
+.u-flex-grow-1 {
+    flex-grow: 1 !important;
+}
+.u-1-of-2 {
+    flex-basis: calc(100% / 2) !important;
+}
+.u-1-of-3 {
+    flex-basis: calc(100% / 3) !important;
+}
+.u-2-of-3 {
+    flex-basis: calc(100% / 3 * 2) !important;
+}
+.u-1-of-4 {
+    flex-basis: calc(100% / 4) !important;
+}
+.u-3-of-4 {
+    flex-basis: calc(100% / 4 * 3) !important;
+}
+.u-1-of-5 {
+    flex-basis: calc(100% / 5) !important;
+}
+.u-2-of-5 {
+    flex-basis: calc(100% / 5 * 2) !important;
+}
+.u-3-of-5 {
+    flex-basis: calc(100% / 5 * 3) !important;
+}
+.u-4-of-5 {
+    flex-basis: calc(100% / 5 * 4) !important;
+}
+.u-1-of-6 {
+    flex-basis: calc(100% / 6) !important;
+}
+.u-5-of-6 {
+    flex-basis: calc(100% / 6 * 5) !important;
+}
+@media (min-width: 576px) {
+    .u-1-of-2-bp1 {
+        flex-basis: calc(100% / 2) !important;
+    }
+    .u-1-of-3-bp1 {
+        flex-basis: calc(100% / 3) !important;
+    }
+    .u-2-of-3-bp1 {
+        flex-basis: calc(100% / 3 * 2) !important;
+    }
+    .u-1-of-4-bp1 {
+        flex-basis: calc(100% / 4) !important;
+    }
+    .u-3-of-4-bp1 {
+        flex-basis: calc(100% / 4 * 3) !important;
+    }
+    .u-1-of-5-bp1 {
+        flex-basis: calc(100% / 5) !important;
+    }
+    .u-2-of-5-bp1 {
+        flex-basis: calc(100% / 5 * 2) !important;
+    }
+    .u-3-of-5-bp1 {
+        flex-basis: calc(100% / 5 * 3) !important;
+    }
+    .u-4-of-5-bp1 {
+        flex-basis: calc(100% / 5 * 4) !important;
+    }
+    .u-1-of-6-bp1 {
+        flex-basis: calc(100% / 6) !important;
+    }
+    .u-5-of-6-bp1 {
+        flex-basis: calc(100% / 6 * 5) !important;
+    }
+}
+@media (min-width: 768px) {
+    .u-1-of-2-bp2 {
+        flex-basis: calc(100% / 2) !important;
+    }
+    .u-1-of-3-bp2 {
+        flex-basis: calc(100% / 3) !important;
+    }
+    .u-2-of-3-bp2 {
+        flex-basis: calc(100% / 3 * 2) !important;
+    }
+    .u-1-of-4-bp2 {
+        flex-basis: calc(100% / 4) !important;
+    }
+    .u-3-of-4-bp2 {
+        flex-basis: calc(100% / 4 * 3) !important;
+    }
+    .u-1-of-5-bp2 {
+        flex-basis: calc(100% / 5) !important;
+    }
+    .u-2-of-5-bp2 {
+        flex-basis: calc(100% / 5 * 2) !important;
+    }
+    .u-3-of-5-bp2 {
+        flex-basis: calc(100% / 5 * 3) !important;
+    }
+    .u-4-of-5-bp2 {
+        flex-basis: calc(100% / 5 * 4) !important;
+    }
+    .u-1-of-6-bp2 {
+        flex-basis: calc(100% / 6) !important;
+    }
+    .u-5-of-6-bp2 {
+        flex-basis: calc(100% / 6 * 5) !important;
+    }
+}
+@media (min-width: 992px) {
+    .u-1-of-2-bp3 {
+        flex-basis: calc(100% / 2) !important;
+    }
+    .u-1-of-3-bp3 {
+        flex-basis: calc(100% / 3) !important;
+    }
+    .u-2-of-3-bp3 {
+        flex-basis: calc(100% / 3 * 2) !important;
+    }
+    .u-1-of-4-bp3 {
+        flex-basis: calc(100% / 4) !important;
+    }
+    .u-3-of-4-bp3 {
+        flex-basis: calc(100% / 4 * 3) !important;
+    }
+    .u-1-of-5-bp3 {
+        flex-basis: calc(100% / 5) !important;
+    }
+    .u-2-of-5-bp3 {
+        flex-basis: calc(100% / 5 * 2) !important;
+    }
+    .u-3-of-5-bp3 {
+        flex-basis: calc(100% / 5 * 3) !important;
+    }
+    .u-4-of-5-bp3 {
+        flex-basis: calc(100% / 5 * 4) !important;
+    }
+    .u-1-of-6-bp3 {
+        flex-basis: calc(100% / 6) !important;
+    }
+    .u-5-of-6-bp3 {
+        flex-basis: calc(100% / 6 * 5) !important;
+    }
+}
+@media (min-width: 1200px) {
+    .u-1-of-2-bp4 {
+        flex-basis: calc(100% / 2) !important;
+    }
+    .u-1-of-3-bp4 {
+        flex-basis: calc(100% / 3) !important;
+    }
+    .u-2-of-3-bp4 {
+        flex-basis: calc(100% / 3 * 2) !important;
+    }
+    .u-1-of-4-bp4 {
+        flex-basis: calc(100% / 4) !important;
+    }
+    .u-3-of-4-bp4 {
+        flex-basis: calc(100% / 4 * 3) !important;
+    }
+    .u-1-of-5-bp4 {
+        flex-basis: calc(100% / 5) !important;
+    }
+    .u-2-of-5-bp4 {
+        flex-basis: calc(100% / 5 * 2) !important;
+    }
+    .u-3-of-5-bp4 {
+        flex-basis: calc(100% / 5 * 3) !important;
+    }
+    .u-4-of-5-bp4 {
+        flex-basis: calc(100% / 5 * 4) !important;
+    }
+    .u-1-of-6-bp4 {
+        flex-basis: calc(100% / 6) !important;
+    }
+    .u-5-of-6-bp4 {
+        flex-basis: calc(100% / 6 * 5) !important;
+    }
+}
+
+
+
+
+
+
+
+
+/*------------------------------------*\
+  #MEDIA
+\*------------------------------------*/
+/*
+    Media Queries
+    ---
+    EXAMPLE Media Queries for Responsive Design.
+    These examples override the primary ('mobile first') styles.
+    USE THEM INLINE!
+*/
+
+/* Extra small devices (portrait phones, less than 576px)
+   No media query since this is the default in mobile first design
+*/
+
+/* Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+*/
+
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+*/
+
+/* Large devices (landscape tablets, desktops, 992px and up)
+@media (min-width: 992px) {}
+*/
+
+/* Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+*/
+
+
+
+
+
+
+
+/*
+    Print styles.
+    ---
+    Inlined to avoid the additional HTTP request:
+    http://www.phpied.com/delay-loading-your-print-css/
+*/
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important;
+        /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+    pre {
+        white-space: pre-wrap !important;
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+    thead {
+        display: table-header-group;
+    }
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

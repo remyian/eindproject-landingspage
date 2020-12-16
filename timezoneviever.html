@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timzeone Viewer</title>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initAutocomplete&libraries=places&v=weekly"
+      defer
+    ></script>
+
+    <script src="script/app.js"></script>
+    <script src="script/key.js"></script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="css/screen.css">
+</head>
+<body  class="viewport">
+    <div class="grid-container">
+
+        <div class="grid-item-header">
+            <div>
+                <img src="img/timezone_viewer_logo.png" alt="This is the timezone viewer logo" class="c-logo" width="232"height="87">
+            </div>
+        </div>
+
+        <div class="grid-item-local background-light"> 
+                <div>
+                    <h3>Local Time</h3>
+                    <p class="js-location"> (choose place) </p>
+                    <h1 class="js-local-time"> TIME </h1>
+                    <div>
+                        <img id="js-Local-image" src="img/iconfinder_weather02_4102326.png"/>
+                    </div>
+                </div>
+        </div>
+
+        <div class="grid-item-chosen  background-dark">
+            <div>
+                <h3>Time at chosen place</h3>
+                <form action="/action_page.php">
+                  <label for="place">Choose a place:</label>
+                  <select  class="c-dropdown" onchange="getPlace();" name="place" id="place"> 
+                    <option value="San Francisco">San Francisco</option>
+                    <option value="New York">New York</option>
+                    <option value="China">China</option>
+                    <option value="Tokyo">Tokyo</option>
+                    <option value="London">London</option>
+                    <option value="Sydney">Sydney</option>
+                    <option value="Berlin">Berlin</option>
+                    <option value="India">India</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="Mexico">Mexico</option>
+                    <option value="Egypt">Egypt</option>
+                    <option value="Bangladesh">Bangladesh</option>
+                    <option value="Pakistan">Pakistan</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Turkey">Turkey</option>
+                    <option value="Philippines">Philippines</option>
+                    <option value="Russia">Russia</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Indonesia">Indonesia</option>
+                    <option value="Peru">Peru</option>
+                    <option value="Thailand">Thailand</option>
+                    <option value="South Korea">South Korea</option>
+                    <option value="Iran">Iran</option>
+                    <option value="Malaysia">Malaysia</option>
+                    <option value="Saudi Arabia">Saudi Arabia</option>
+                    
+                  </select>
+                  <br><br>
+                </form>
+                <h1 class="js-chosen-time"> 18:08 </h1>
+                <div>
+                    <img id="js-Chosen-image" src="img/iconfinder_Weather_Weather_Forecast_Moon_Night_Cloud_3859140.png" />
+                </div>
+            </div> 
+        </div>
+
+    </div>
+</body>
+</html>
