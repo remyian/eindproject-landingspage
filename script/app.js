@@ -1,5 +1,5 @@
 //iedere seconde herladen
-var intervalID = window.setInterval(myCallback, 1000);
+var intervalID = window.setInterval(myCallback, 10000);
 
 function myCallback() {
 	getTime();
